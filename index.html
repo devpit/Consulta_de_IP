@@ -45,8 +45,22 @@ button {
   width: 100%;
 }
   </style>
+<script>
+		function getIP() {
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function() {
+				if (this.readyState == 4 && this.status == 200) {
+					var ip = this.responseText;
+					var input = document.getElementById('input-ip');
+					input.value = ip;
+				}
+			};
+			xhr.open("GET", "ip.php", true);
+			xhr.send();
+		}
+	</script>
 </head>
-<body>
+<body onload="getIP()">
   <h1>Consulta de IP</h1>
   <label for="input-ip"></label>
   <input type="text" id="input-ip">
