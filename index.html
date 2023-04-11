@@ -51,8 +51,8 @@ button {
 			xhr.onreadystatechange = function() {
 				if (this.readyState == 4 && this.status == 200) {
 					var ip = this.responseText;
-					var input = document.getElementById('input-ip');
-					input.value = ip;
+					alert("Seu endereço IP é: " + ip);
+					document.getElementById("ip-input").value = ip;
 				}
 			};
 			xhr.open("GET", "ip.php", true);
@@ -61,13 +61,13 @@ button {
 	</script>
 </head>
 <body onload="getIP()">
-  <h1>Consulta de IP</h1>
-  <label for="input-ip"></label>
-  <input type="text" id="input-ip">
+<h1>Consulta de IP</h1>
+	<label for="ip-input">Seu endereço IP:</label>
+	<input type="text" id="ip-input">
   <button id="btn-consultar">Consultar</button>
   <div id="resultado"></div>
   <script>
-    const inputIP = document.querySelector('#input-ip');
+    const inputIP = document.querySelector('#ip-input');
     const btnConsultar = document.querySelector('#btn-consultar');
     const resultado = document.querySelector('#resultado');
 
