@@ -51,7 +51,6 @@
         xhr.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             var ip = this.responseText;
-            alert("Seu endereço IP é: " + ip);
             document.getElementById("ip-input").value = ip;
           }
         };
